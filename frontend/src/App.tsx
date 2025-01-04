@@ -23,15 +23,29 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <input
-        type="text"
-        value={message}
-        onChange={(e) => setmessage(e.target.value)}
-        placeholder="type message.."
-      />
-      <input type="button" value="Send" onClick={sendMessage} />
-    </div>
+    <>
+      <h1>Ping-pong app</h1>
+      <div style={{ height: "30px" }}>
+        <input
+          type="text"
+          value={message}
+          onChange={(e) => setmessage(e.target.value)}
+          placeholder="type message.."
+          style={{ height: "85%", paddingLeft: "10px" }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              sendMessage();
+            }
+          }}
+        />
+        <input
+          type="button"
+          value="Send"
+          onClick={sendMessage}
+          style={{ height: "100%" }}
+        />
+      </div>
+    </>
   );
 }
 
